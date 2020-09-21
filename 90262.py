@@ -1,18 +1,25 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Sep 14 08:09:30 2020
+Created on Tue Sep 15 15:41:32 2020
 
 @author: cis-user
 """
 
-print("解ax**2+bx+c=0")
-print("請輸入a,b,c值:")
-a=int(input("a:"))
-b=int(input("b:"))
-c=int(input("c:"))
-d=(b**2)-(4*a*c)
-x=(-b-d**0.5)/(2*a)
-y=(-b+d**0.5)/(2*a)
-print("ax**2+bx+c=0的解為:" )
-print(x,y)
+string="I love you"
+res=string.split(" ")
+print(res)
 
+##############################
+string2=string[::-1]
+res=string2.split(" ")
+print(res)
+
+##############################
+stringso="so "
+stringmuch="much"
+print(string,stringso*100,stringmuch)
+
+##############################
+import random
+a=random.randint(1, 100)
+print(string,stringso*a,stringmuch)
