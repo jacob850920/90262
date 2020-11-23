@@ -1,0 +1,52 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Oct 19 08:34:28 2020
+
+@author: Tony Kuo
+"""
+import csv
+import requests
+from bs4 import BeautifulSoup
+# from selenium import webdriver
+# from selenium .webdriver.support.ui import Select
+
+# r = requests.get("https://udn.com/news/story/7321/5018383?from=udn_ch2_menu_v2_main_index")
+r = requests.get("https://tw.news.yahoo.com/-yahoo%E8%AB%96%E5%A3%87%E5%90%B3%E5%BB%BA%E5%BF%A0%E7%A7%8B%E9%AC%A5%E6%B3%A8%E5%AE%9A%E6%98%AF%E4%B8%80%E5%A0%B4%E4%B8%BB%E9%A1%8C%E5%A4%B1%E7%84%A6%E7%9A%84%E9%81%8A%E8%A1%8C-230048092.html")
+r.encoding = "utf8"
+
+with open('html.txt', "w", encoding="utf8") as fp:
+    # print(r.text,file=fp)                                 ##可用print，也可用write
+    fp.write(r.text)
+    
+with open('html.txt', "r", encoding="utf8") as fp2:
+    r2=fp2.read() 
+    
+
+    
+page_source = r.text
+page_source2 = page_source.split('\n')
+
+soup = BeautifulSoup(r.text, "lxml")
+
+####################################第一種#######################################
+tag_div=soup.find_all('div',class_="caas-body")
+print(tag_div)
+print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+for a in tag_div:
+    print(a.text)
+# 開啟輸出的 CSV 檔案
+with open('output.csv', 'w', newline='') as csvfile:
+  # 建立 CSV 檔寫入器
+  writer = csv.writer(csvfile)
+  writer.writerow(tag_div)
+
+####################################第二種#######################################
+
+# search_span=soup.select("body > main > div > section.wrapper-left.main-content__wrapper > section > article > div > section.article-content__editor")
+
+# search_span2=soup.select("div > ul > li > a")
+
+
+# print(soup.prettify())
+
+# r.test.to_csv('GetAllStock.csv',encoding='utf-8-sig')
