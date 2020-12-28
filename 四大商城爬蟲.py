@@ -14,7 +14,7 @@ import time,datetime
 
 with open('四大商城爬蟲.csv','w+',newline='', encoding="utf-8-sig") as csvfile:   #解決多一空行 newline=''
     writer = csv.writer(csvfile)
-    writer.writerow(('商品名','網站','價格','連結','d'))
+    writer.writerow(('商品名','網站','價格','連結'))
     
     key="iphone 12 mini 64g"
     
@@ -100,7 +100,7 @@ with open('四大商城爬蟲.csv','w+',newline='', encoding="utf-8-sig") as csv
         print("https://shopee.tw" + search_url[i].get('href'))
         
         
-        writer.writerow([search_name[i].text,"蝦皮商城",d,"https://shopee.tw"+search_url[i].get('href'),])
+        writer.writerow([search_name[i].text,"蝦皮商城",d,"https://shopee.tw"+search_url[i].get('href')])
     print("[YAHOO超級商城]")
     url="https://tw.search.mall.yahoo.com/search/mall/product?kw="+key+"&p=iphone12mini64g&cid=hp&clv=0"
     driver.get(url)
