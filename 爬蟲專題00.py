@@ -174,7 +174,7 @@ with open('四大商城爬蟲.csv','w+',newline='', encoding="utf-8-sig") as csv
 
 sys.exit
 
-db = pymysql.connect(host='163.15.24.35',port=3306,user='chenlw',passwd='abcd1234',db='mybooks',charset='utf8')              ####連線到 TQC_SRV031，記得改IP
+db = pymysql.connect(host='192.168.100.117',port=3306,user='',passwd='abcd1234',db='shpping',charset='utf8')              ####連線到 TQC_SRV031，記得改IP
 cursor = db.cursor()
 
 # with open('四大商城爬蟲.csv', "r", encoding="utf-8-sig") as fp2:
